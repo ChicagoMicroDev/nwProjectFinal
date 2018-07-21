@@ -10,7 +10,17 @@ var config = {
 firebase.initializeApp(config);
 
 var currentJudge = "";
+$.ajax({
+    url: "https://my.api.mockaroo.com/judge_bio_data.json?key=d8fd2020",
+    method: "GET"
+}).then(function(response) {
+    console.log(response);
 
+    $("#bio-body").text(response[0].bio);
+    $("#term-start").text("Term Start: " + response[0].term_start)
+    $("#term-end").text("Term Ends: " + response[0].term_ends)
+
+});
 // A function that does an AJAX call
 function judgesInfo(firstName, lastName) {
     $.ajax({

@@ -1,68 +1,102 @@
 <DOCTYPE html>
     <html lang="en">
     <head>
-      <meta charset = "utf-8">
-      <title> Rate Your Judge</title>
-    
-      <!-- Bootstrap CDN-->
+        <meta charset = "utf-8">
+        <title> Rate Your Judge</title>
+
+        <style>
+
+            .background {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-image: url("assets/pic1.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                opacity: 0.6;
+                z-index: -1;
+            }
+
+        </style>
+
+
+
+        <!-- Bootstrap CDN-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
         <!--reCaptcha-->
         <script src='https://www.google.com/recaptcha/api.js'></script>
-    
+
         <!-- Firebase Reference -->
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>  
-    
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
     </head>
-    
-      
-      
-    
-    
+
+
+
+
+
     <body>
-      
-      <section> -->
-    
-            <!-- search fieldbox -->
-            <div style="background:black; color:white" class="jumbotron">
-                <h1 class="text-center">Rate your Judge</h1>
-                <h3 class="text-center">The Best way to Show your Hatred for the Judges</h3>
-            </div>
+    <div class = "background"></div>>
+
+    <section> -->
+
+        <!-- search fieldbox -->
+        <div style="background:transparent; color: #303030" class="jumbotron">
+            <br>
+            <br>
+            <h1 class="text-center"><b>Rate your Judge</b></h1>
+            <h3 class="text-center">The Best way to Show your Hatred for the Judges</h3>
+        </div>
 
         <div id="searchBox">
-       <form  method = "POST">
-          
-          <center><label>First Name</label> 
-    
-          <input type ="text" id = "firstName" name ="first-name">
-        <br>
-        <br>
-          <label> Last Name </label>
-    
-          <input type ="text" id = "lastName" name ="last-name">
-        
-        <br>
-        <br>
-            
-      
-      <input type="submit" id="submit" value="Submit">
-    </center>
-    
-        </form>
-      </div>
-      </section>
-    
-      
-    
+            <form  method = "POST">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <center><label><b>First Name</b></label>
+
+                    <input type ="text" id = "firstName" name ="first-name">
+                    <br>
+                    <br>
+                    <label><b> Last Name </b> </label>
+
+                    <input type ="text" id = "lastName" name ="last-name">
+
+                    <br>
+                    <br>
+
+
+                    <input type="submit" id="submit" value="Submit">
+                </center>
+
+            </form>
+        </div>
+    </section>
+
+
+
     <div id="searchResults" class="container">
-    
+
         <br>
-    
+
         <!-- Jumbotron Title -->
-            
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="card card-default">
@@ -74,8 +108,8 @@
                         <tr>
                             <th scope="col">Division</th>
                             <th scope="col">Judge Name</th>
-                            <th scope="col">Court Location</th>                          
-    
+                            <th scope="col">Court Location</th>
+
                         </tr>
                         </thead>
                         <tbody id="judgeTable">
@@ -84,24 +118,24 @@
                             <td> Harvey Weinstein</td>
                             <td> 420 Northwestern Street</td>
                         </tr>
-                        </tbody>    
+                        </tbody>
                     </table>
-    
+
                     </tr>
-    
+
                 </div>
             </div>
         </div>
-    
+
         <hr>
 
-        
-    
-       
+
+
+
         <div id="last-page" class="container">
-    
+
             <br>
-    
+
             <!-- Jumbotron Title -->
             <div style="background:black; color:white" class="jumbotron">
                 <h1 class="text-center">Rate your Judge</h1>
@@ -118,15 +152,14 @@
                             <p class="card-text" id="judge-bio">
                                 <strong>Bio:</strong>
                             </p>
-                            <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most
-                                popular gun in American crime. Do you believe that shit? It actually says that in the little
-                                book that comes with it: the most popular gun in American crime. Like they're actually proud
-                                of that shit. </p>
+                            <p id="bio-body"></p>
+                            <p id="term-start"></p>
+                            <p id="term-end"></p>
                             <a href="#" class="btn btn-dark">Back</a>
                             <a href="#" class="btn btn-dark" id="comment-button">Comment</a>
                         </div>
                     </div>
-    
+
                 </div>
                 <!--Comments Populated from Firebase-->
                 <div class="col-sm-6">
@@ -134,7 +167,7 @@
                         <div class="card-body">
                             <h5 class="text-center">What People Say About This Judge</h5>
                             <div id="comment-display">
-    
+
                             </div>
                         </div>
                     </div>
@@ -143,7 +176,7 @@
             <!--Comment Form That Toggles OFF/ON-->
             <div class="row">
                 <div class="col-sm-6">
-    
+
                     <div class="card" id="comment-form">
                         <div class="container">
                             <form role="form" id="comment-submit">
@@ -165,14 +198,14 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="rating-input">Give an overall rating for this judge:&ensp;</label>
-                                   
+
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="exampleRadios" id="judge-rate-pos" value="positive" required>
                                         <label class="form-check-label" for="exampleRadios1">
                                             Positive&ensp;
                                         </label>
                                     </div>
-                                    <div class="form-check"> 
+                                    <div class="form-check">
                                         <input class="form-check-input" type="radio" name="exampleRadios" id="judge-rate-neg" value="negative">
                                         <label class="form-check-label" for="exampleRadios2">
                                             Negative
@@ -189,15 +222,15 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
         </div>
-        <script src="javaScript/new.js"></script>
+        <script src="assets/javaScript/new.js"></script>
     </body>
-    
-      <footer>
+
+    <footer>
         <div class = footer>
-          &copy; Copyright Rate Your Judge.com
+            &copy; Copyright Rate Your Judge.com
         </div>
-      </footer>
-    
+    </footer>
+
     </html>

@@ -1,0 +1,33 @@
+.searchBox {
+    color: blue;
+}
+
+.text-center {
+    font-family: Arial, Helvetica;
+}
+
+.firstName {
+    font-style: italic;
+}
+
+.header {
+    background:url(/assets/pic1.jpg);
+}
+
+
+.background-size:{
+    background-size: contain;
+}
+
+
+.text-center {
+    font-size: 50px;
+}
+
+label {
+    font-size: 30px;
+}
+
+input#submit {
+    font-weight: bold;
+}

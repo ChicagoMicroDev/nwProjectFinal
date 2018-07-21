@@ -4,21 +4,7 @@
         <meta charset = "utf-8">
         <title> Rate Your Judge</title>
 
-        <style>
 
-            .background {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                background-image: url("assets/pic1.jpg");
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-                opacity: 0.6;
-                z-index: -1;
-            }
-
-        </style>
 
 
 
@@ -46,7 +32,25 @@
 
 
     <body>
-    <div class = "background"></div>>
+
+    <div class = "background"></div>
+    <style>
+
+        .background {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-image: url("assets/pic1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+    </style>
+
+
 
     <section> -->
 
@@ -54,9 +58,13 @@
         <div style="background:transparent; color: #303030" class="jumbotron">
             <br>
             <br>
+
+
             <h1 class="text-center"><b>Rate your Judge</b></h1>
             <h3 class="text-center">The Best way to Show your Hatred for the Judges</h3>
         </div>
+
+
 
         <div id="searchBox">
             <form  method = "POST">
@@ -91,7 +99,17 @@
 
 
 
+
+
+
+
+
     <div id="searchResults" class="container">
+
+
+
+
+
 
         <br>
 
@@ -103,6 +121,9 @@
                     <div class="card-body">
                         <h3><strong>Search Results</strong>:</h3>
                     </div>
+
+
+
                     <table class="table">
                         <thead>
                         <tr>
@@ -130,101 +151,125 @@
         <hr>
 
 
+        <div id= "background" style="background-image:url('assets/pic5.jpg');">
+            <style>
+
+                .background2{
+                    opacity: 0.5;
+                }
+
+            </style>
 
 
-        <div id="last-page" class="container">
 
-            <br>
+            <div id="last-page" class="container">
 
-            <!-- Jumbotron Title -->
-            <div style="background:black; color:white" class="jumbotron">
-                <h1 class="text-center">Rate your Judge</h1>
-                <h3 class="text-center">The Best way to Show your Hatred for the Judges</h3>
-            </div>
-            <!--Judge Profile Card-->
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" id="judge-heading"></h5>
-                            <h6 id="division-sub-heading"></h6>
-                            <h6 id="location-sub-heading"></h6>
-                            <p class="card-text" id="judge-bio">
-                                <strong>Bio:</strong>
-                            </p>
-                            <p id="bio-body"></p>
-                            <p id="term-start"></p>
-                            <p id="term-end"></p>
-                            <a href="#" class="btn btn-dark">Back</a>
-                            <a href="#" class="btn btn-dark" id="comment-button">Comment</a>
+                <br>
+
+                <!-- Jumbotron Title -->
+                <div style="background:black; color:white; opacity: 0.5" class="jumbotron">
+                    <h1 class="text-center">Rate your Judge</h1>
+                    <h3 class="text-center">The Best way to Show your Hatred for the Judges</h3>
+                </div>
+                <!--Judge Profile Card-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title" id="judge-heading"></h5>
+                                <h6 id="division-sub-heading"></h6>
+                                <h6 id="location-sub-heading"></h6>
+                                <p class="card-text" id="judge-bio">
+                                    <strong>Bio:</strong>
+                                </p>
+                                <p id="bio-body"></p>
+                                <p id="term-start"></p>
+                                <p id="term-end"></p>
+                                <a href="#" class="btn btn-dark">Back</a>
+                                <a href="#" class="btn btn-dark" id="comment-button">Comment</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--Comments Populated from Firebase-->
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-center">What People Say About This Judge</h5>
+                                <div id="comment-display">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-                <!--Comments Populated from Firebase-->
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="text-center">What People Say About This Judge</h5>
-                            <div id="comment-display">
 
+
+
+                <!--Comment Form That Toggles OFF/ON-->
+
+                <div class="row">
+
+
+
+                    <div class="col-sm-6">
+
+
+
+                        <div class="card" id="comment-form">
+                            <div class="container">
+                                <form role="form" id="comment-submit">
+                                    <div class="form-group row">
+                                        <label for="name-input">Judge Name:</label>
+                                        <input class="form-control" id="name-input" type="text" required>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="division-input">Division:</label>
+                                        <input class="form-control" id="division-input" type="text" required>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="location">Location:</label>
+                                        <input class="form-control" id="location-input" type="text" required>
+                                    </div>
+
+
+
+                                    <div class="form-group row">
+                                        <label for="username-input">User Name (Optional):</label>
+                                        <input class="form-control" id="username-input" type="text" value="Anonymous">
+
+
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="rating-input">Give an overall rating for this judge:&ensp;</label>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="judge-rate-pos" value="positive" required>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Positive&ensp;
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="judge-rate-neg" value="negative">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                                Negative
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="comment-input">Leave your comment</label>
+                                        <textarea class="form-control" id="comment-input" rows="5" required></textarea>
+                                    </div>
+                                    <div class="g-recaptcha" data-sitekey="6LdcgmQUAAAAAPAnsj_wP7Irtz15TpOgJUnf9Zlf"></div>
+                                    <button class="btn btn-dark" id="submit-comment">Submit</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--Comment Form That Toggles OFF/ON-->
-            <div class="row">
-                <div class="col-sm-6">
-
-                    <div class="card" id="comment-form">
-                        <div class="container">
-                            <form role="form" id="comment-submit">
-                                <div class="form-group row">
-                                    <label for="name-input">Judge Name:</label>
-                                    <input class="form-control" id="name-input" type="text" required>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="division-input">Division:</label>
-                                    <input class="form-control" id="division-input" type="text" required>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="location">Location:</label>
-                                    <input class="form-control" id="location-input" type="text" required>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="username-input">User Name (Optional):</label>
-                                    <input class="form-control" id="username-input" type="text" value="Anonymous">
-                                </div>
-                                <div class="form-group row">
-                                    <label for="rating-input">Give an overall rating for this judge:&ensp;</label>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="judge-rate-pos" value="positive" required>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Positive&ensp;
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="judge-rate-neg" value="negative">
-                                        <label class="form-check-label" for="exampleRadios2">
-                                            Negative
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="comment-input">Leave your comment</label>
-                                    <textarea class="form-control" id="comment-input" rows="5" required></textarea>
-                                </div>
-                                <div class="g-recaptcha" data-sitekey="6LdcgmQUAAAAAPAnsj_wP7Irtz15TpOgJUnf9Zlf"></div>
-                                <button class="btn btn-dark" id="submit-comment">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="assets/javaScript/new.js"></script>
+            <script src="assets/javaScript/new.js"></script>
     </body>
 
     <footer>
